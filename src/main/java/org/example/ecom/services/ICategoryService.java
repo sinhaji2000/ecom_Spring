@@ -1,5 +1,4 @@
 package org.example.ecom.services;
-import org.example.ecom.dto.CategoryDTO;
 import org.example.ecom.dto.FakeStoreCategoryResponseDTO;
 
 import java.io.IOException;

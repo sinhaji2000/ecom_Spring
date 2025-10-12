@@ -2,9 +2,6 @@ package org.example.ecom.gateway;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
-
-import org.example.ecom.dto.CategoryDTO;
 import org.example.ecom.dto.FakeStoreCategoryResponseDTO;
 import org.example.ecom.gateway.api.FakeStoreCategoryApi;
 import org.springframework.stereotype.Component;
