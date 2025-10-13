@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.example.ecom.dto.FakeStoreCategoryResponseDTO;
-import org.example.ecom.dto.FakeStoreCartDTO;
 import java.io.IOException;
 import java.util.List;
 
