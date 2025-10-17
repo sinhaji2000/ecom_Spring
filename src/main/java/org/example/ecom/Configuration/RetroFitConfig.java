@@ -3,6 +3,7 @@ package org.example.ecom.Configuration;
 
 import org.example.ecom.gateway.api.FakeStoreCategoryApi;
 import org.example.ecom.gateway.api.FakeStoreCartApi;
+import org.example.ecom.gateway.api.FakeStoreProductApi;
 import org.example.ecom.gateway.api.FakeStoreUserApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -41,5 +42,9 @@ public class RetroFitConfig {
     @Bean
     public FakeStoreUserApi fakeStoreUserApi(){
         return retrofit().create(FakeStoreUserApi.class);
+    }
+    @Bean
+    public FakeStoreProductApi fakeStoreProductApi() {
+        return retrofit().create(FakeStoreProductApi.class);
     }
 }
