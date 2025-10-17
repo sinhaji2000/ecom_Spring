@@ -5,15 +5,17 @@ package org.example.ecom.Controllers;
 import org.example.ecom.dto.FakeStoreProductResponse;
 import org.example.ecom.services.IProductService;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import java.io.IOException;
 
 @RestController
-@RequestMapping ("/api/products")
+@RequestMapping("/api/products")
 public class ProductController {
 
     public final IProductService productService; ;

@@ -2,6 +2,7 @@ package org.example.ecom.services;
 
 import org.example.ecom.dto.FakeStoreProductResponse;
 import org.example.ecom.gateway.IProductGateway;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.io.IOException;
 public class FakeStoreProductService implements IProductService{
 
     private final IProductGateway productGateway;
-    public FakeStoreProductService(IProductGateway productGateway) {
+    public FakeStoreProductService(@Qualifier("fakeStoreRestTemplateGateway") IProductGateway productGateway) {
         this.productGateway = productGateway;
     }
 
