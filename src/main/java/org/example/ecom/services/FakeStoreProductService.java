@@ -1,7 +1,9 @@
 package org.example.ecom.services;
 
 import org.example.ecom.dto.FakeStoreProductResponse;
+import org.example.ecom.dto.ProductDTO;
 import org.example.ecom.gateway.IProductGateway;
+import org.example.ecom.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +18,8 @@ public class FakeStoreProductService implements IProductService{
     }
 
     @Override
-    public FakeStoreProductResponse getProductById(Long id)  throws IOException {
-        return productGateway.getProductById(id) ;
+    public ProductDTO getProductById(Long id)  throws IOException {
+        FakeStoreProductResponse response = productGateway.getProductById(id) ;
+        return ProductMapper.toProductDTO(response);
     }
 }

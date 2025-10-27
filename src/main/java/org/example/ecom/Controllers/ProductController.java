@@ -3,6 +3,7 @@ package org.example.ecom.Controllers;
 
 
 import org.example.ecom.dto.FakeStoreProductResponse;
+import org.example.ecom.dto.ProductDTO;
 import org.example.ecom.services.IProductService;
 import org.springframework.http.ResponseEntity;
 
@@ -24,9 +25,9 @@ public class ProductController {
         this.productService = productService;
     }
     @GetMapping("/{id}")
-    public ResponseEntity<FakeStoreProductResponse>getProductById(@PathVariable Long id) throws IOException {
+    public ResponseEntity<ProductDTO>getProductById(@PathVariable Long id) throws IOException {
 
-        FakeStoreProductResponse product = productService.getProductById(id);
+       ProductDTO product = productService.getProductById(id);
 
         if (product != null) {
             return ResponseEntity.ok(product); // 200 OK
