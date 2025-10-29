@@ -14,8 +14,13 @@ import lombok.Setter;
 public class ProductDTO {
     private int id;
     private String name;
-    private String description;
+    private String color ;
     private double price;
+    private String description;
+    private String model ;
+    private String title ;
     private String category;
-    private String imageUrl;
+    private String brand;
+
+
 }
