@@ -11,5 +11,5 @@ import lombok.*;
 @Builder
 public class CategoryDTO {
 
-    private List<String> name ;
+    private String name ;
 }

@@ -1,0 +1,46 @@
+package org.example.ecom.services;
+
+import org.example.ecom.dto.CategoryDTO;
+import org.example.ecom.entity.Category;
+import org.example.ecom.mapper.CategoryMapper;
+import org.example.ecom.repository.CategoryRepository;
+import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class CategoryService implements ICategoryService{
+
+    private final CategoryRepository categoryRepository ;
+
+
+    public CategoryService(CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
+    }
+
+    @Override
+    public List<CategoryDTO>getAllCategories() throws IOException{
+
+        List<Category> categories = categoryRepository.findAll() ;
+        List<CategoryDTO> categoryDTOs = new ArrayList<>();
+        for(Category category : categories){
+            categoryDTOs.add(CategoryMapper.toCategoryDTO(category)) ;
+        }
+
+        return  categoryDTOs ;
+    }
+
+    @Override
+    public CategoryDTO createCateory(CategoryDTO categoryDTO) throws IOException{
+
+        Category category = CategoryMapper.toCategory(categoryDTO) ;
+        Category savedCategory = categoryRepository.save(category);
+
+        // Convert back to DTO for response
+        return CategoryMapper.toCategoryDTO(savedCategory) ;
+    }
+
+
+}
