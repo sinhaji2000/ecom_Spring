@@ -10,6 +10,7 @@ public interface ICategoryService {
 
 
     public List<CategoryDTO> getAllCategories() throws IOException;
+    public CategoryDTO getByName(String name) throws IOException;
 
     public CategoryDTO createCateory(CategoryDTO categoryDTO) throws IOException;
 

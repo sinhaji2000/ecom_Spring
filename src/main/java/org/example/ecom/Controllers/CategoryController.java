@@ -22,8 +22,17 @@ public class CategoryController {
     }
 
     @GetMapping
-    public List<CategoryDTO> getAllProducts() throws IOException {
-        return categoryService.getAllCategories(); // returns all data as-is
+    public ResponseEntity<?> getAllProducts(@RequestParam(required = false) String name) throws IOException {
+
+        if(name != null && !name.isBlank()){
+            CategoryDTO categoryDTO = categoryService.getByName(name) ;
+            return ResponseEntity.ok(categoryDTO) ;
+        }else{
+
+            List<CategoryDTO>result = categoryService.getAllCategories() ;
+            return ResponseEntity.ok(result) ;
+        }
+
     }
 
     @PostMapping
