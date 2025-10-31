@@ -2,6 +2,7 @@ package org.example.ecom.mapper;
 
 import org.example.ecom.dto.FakeStoreProductResponse;
 import org.example.ecom.dto.ProductDTO;
+import org.example.ecom.entity.Category;
 import org.example.ecom.entity.Product;
 
 public class ProductMapper {
@@ -12,7 +13,7 @@ public class ProductMapper {
         dto.setId(response.getId());
         dto.setName(response.getTitle());
         dto.setDescription(response.getDescription());
-        dto.setCategory(response.getCategory());
+
 
 
         // Convert Object to double safely
@@ -37,15 +38,18 @@ public class ProductMapper {
         dto.setDescription(product.getDescription());
         dto.setModel(product.getModel());
         dto.setTitle(product.getTitle());
-        dto.setCategory(product.getCategory());
+        dto.setCategoryId(product.getCategory().getId());
         dto.setBrand(product.getBrand());
+
+
 
         return dto;
     }
 
-    public static Product toEntity(ProductDTO dto) {
+    public static Product toEntity(ProductDTO dto,  Category category) {
         if (dto == null) return null;
-
+        //Category category = new Category();
+        category.setId(dto.getCategoryId());
         return Product.builder()
                 .name(dto.getName())
                 .color(dto.getColor())
@@ -54,7 +58,7 @@ public class ProductMapper {
                 .discount(0)
                 .model(dto.getModel())
                 .title(dto.getName())
-                .category(dto.getCategory())
+                .category(category)
                 .brand(dto.getBrand())
                 .isPopular(false)
                 .build();

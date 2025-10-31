@@ -1,7 +1,8 @@
 package org.example.ecom.entity;
 
+import java.util.List ;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -12,6 +13,12 @@ import lombok.*;
 @Builder
 public class Category extends BaseEntity{
 
+
+
+
     private String name ;
+
+    @OneToMany(mappedBy = "category" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    private List<Product> products;
 
 }
