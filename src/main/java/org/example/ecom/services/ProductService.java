@@ -4,6 +4,7 @@ import org.example.ecom.dto.ProductDTO;
 import org.example.ecom.dto.ProductWithCateoryDTO;
 import org.example.ecom.entity.Category;
 import org.example.ecom.entity.Product;
+import org.example.ecom.exception.ProductNotFoundException;
 import org.example.ecom.mapper.ProductMapper;
 import org.example.ecom.repository.CategoryRepository;
 import org.example.ecom.repository.ProductRepository;
@@ -24,7 +25,7 @@ public class ProductService implements IProductService{
     public ProductDTO getProductById(Long id) {
         return productRepository.findById(id)
                 .map(ProductMapper::toProductDTO)
-                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+                .orElseThrow(() -> new ProductNotFoundException("Product not found with id: " + id));
     }
 
     @Override
