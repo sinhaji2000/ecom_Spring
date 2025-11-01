@@ -2,6 +2,7 @@ package org.example.ecom.services;
 
 import org.example.ecom.dto.FakeStoreProductResponse;
 import org.example.ecom.dto.ProductDTO;
+import org.example.ecom.dto.ProductWithCateoryDTO;
 import org.example.ecom.entity.Product;
 import org.example.ecom.gateway.IProductGateway;
 import org.example.ecom.mapper.ProductMapper;
@@ -25,6 +26,10 @@ public class FakeStoreProductService implements IProductService{
     }
 
     public ProductDTO createProduct(ProductDTO productDTO){
+        return null;
+    }
+
+    public ProductWithCateoryDTO getProductWithCategory(Long id) throws IOException{
         return null;
     }
 

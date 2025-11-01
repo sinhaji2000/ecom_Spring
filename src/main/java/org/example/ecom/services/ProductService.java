@@ -1,6 +1,7 @@
 package org.example.ecom.services;
 
 import org.example.ecom.dto.ProductDTO;
+import org.example.ecom.dto.ProductWithCateoryDTO;
 import org.example.ecom.entity.Category;
 import org.example.ecom.entity.Product;
 import org.example.ecom.mapper.ProductMapper;
@@ -33,6 +34,14 @@ public class ProductService implements IProductService{
                 .orElseThrow(() -> new RuntimeException("Category not found with id: " + productDTO.getCategoryId()));
         Product saved =  productRepository.save(ProductMapper.toEntity(productDTO , category));
         return ProductMapper.toProductDTO(saved);
+    }
+
+
+    @Override
+    public ProductWithCateoryDTO getProductWithCategory(Long id){
+
+        Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+        return ProductMapper.toProductWithCateoryDTO(product);
     }
 
 

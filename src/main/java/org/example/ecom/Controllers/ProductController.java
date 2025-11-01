@@ -4,6 +4,7 @@ package org.example.ecom.Controllers;
 
 import org.example.ecom.dto.FakeStoreProductResponse;
 import org.example.ecom.dto.ProductDTO;
+import org.example.ecom.dto.ProductWithCateoryDTO;
 import org.example.ecom.services.IProductService;
 import org.example.ecom.services.ProductService ;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -40,5 +41,13 @@ public class ProductController {
         ProductDTO savedProduct = productService.createProduct(productDTO);
         return ResponseEntity.ok(savedProduct);
     }
+
+    @GetMapping("/{id}/details")
+    public ResponseEntity<ProductWithCateoryDTO>getProductwithCategory(@PathVariable Long id) throws IOException {
+
+        ProductWithCateoryDTO dto = productService.getProductWithCategory(id) ;
+        return ResponseEntity.ok(dto);
+    }
+
 
 }

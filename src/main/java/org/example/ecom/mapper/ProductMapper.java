@@ -2,6 +2,7 @@ package org.example.ecom.mapper;
 
 import org.example.ecom.dto.FakeStoreProductResponse;
 import org.example.ecom.dto.ProductDTO;
+import org.example.ecom.dto.ProductWithCateoryDTO;
 import org.example.ecom.entity.Category;
 import org.example.ecom.entity.Product;
 
@@ -64,15 +65,22 @@ public class ProductMapper {
                 .build();
     }
 
+    public static ProductWithCateoryDTO toProductWithCateoryDTO(Product product) {
 
-//    private String name;
-//    private String color;
-//    private int price;
-//    private String description;
-//    private int discount;
-//    private String model;
-//    private String title;
-//    private String category;
-//    private String brand;
-//    private boolean isPopular;
+       // if(product == null) return null;
+
+        return ProductWithCateoryDTO.builder()
+                .name(product.getName())
+                .color(product.getColor())
+                .price(product.getPrice())
+                .description(product.getDescription())
+                .model(product.getModel())
+                .title(product.getTitle())
+                .brand(product.getBrand())
+                .category(CategoryMapper.toCategoryDTO(product.getCategory()))
+                .build() ;
+
+
+    }
+
 }
