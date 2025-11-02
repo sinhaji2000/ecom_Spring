@@ -13,5 +13,7 @@ public interface ICategoryService {
     public CategoryDTO getByName(String name) throws IOException;
 
     public CategoryDTO createCateory(CategoryDTO categoryDTO) throws IOException;
+    public CategoryDTO getCategoryById(long id) throws IOException;
+
 
 }

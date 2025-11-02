@@ -32,7 +32,7 @@ public class ProductService implements IProductService{
     public ProductDTO createProduct(ProductDTO productDTO){
 
         Category category = categoryRepository.findById(productDTO.getCategoryId())
-                .orElseThrow(() -> new RuntimeException("Category not found with id: " + productDTO.getCategoryId()));
+                .orElseThrow(() -> new ProductNotFoundException("Category not found with id: " + productDTO.getCategoryId()));
         Product saved =  productRepository.save(ProductMapper.toEntity(productDTO , category));
         return ProductMapper.toProductDTO(saved);
     }

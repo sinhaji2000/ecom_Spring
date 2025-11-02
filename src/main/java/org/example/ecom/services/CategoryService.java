@@ -2,6 +2,8 @@ package org.example.ecom.services;
 
 import org.example.ecom.dto.CategoryDTO;
 import org.example.ecom.entity.Category;
+import org.example.ecom.exception.CategoryNotFoundExpection;
+import org.example.ecom.exception.ProductNotFoundException;
 import org.example.ecom.mapper.CategoryMapper;
 import org.example.ecom.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
@@ -36,6 +38,14 @@ public class CategoryService implements ICategoryService{
     public CategoryDTO getByName(String name) throws IOException {
         Category category = categoryRepository.findByName(name)
                 .orElseThrow(()->new IOException("Category not found"));
+        return CategoryMapper.toCategoryDTO(category) ;
+    }
+
+    @Override
+    public CategoryDTO getCategoryById(long id) throws IOException {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException("Category not found with id: " + id));
+
         return CategoryMapper.toCategoryDTO(category) ;
     }
 

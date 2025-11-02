@@ -41,4 +41,11 @@ public class CategoryController {
         return ResponseEntity.ok().body(savedCategory);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getCategoryById(@PathVariable long id) throws IOException {
+
+        CategoryDTO categoryDTO = categoryService.getCategoryById(id) ;
+        return ResponseEntity.ok(categoryDTO) ;
+    }
+
 }
