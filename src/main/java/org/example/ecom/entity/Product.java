@@ -3,6 +3,7 @@ package org.example.ecom.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.*;
 
 @Getter
@@ -11,6 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Entity
+@Table(name = "product")
 public class Product extends BaseEntity {
 
     private String name;
@@ -24,7 +26,7 @@ public class Product extends BaseEntity {
     private boolean isPopular;
 
     @ManyToOne
-    @JoinColumn(name="categoryId" , nullable = false)
+    @JoinColumn(name="category_id" , nullable = false)
     private Category category ;
 
 }
