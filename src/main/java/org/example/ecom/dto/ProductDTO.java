@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 
 public class ProductDTO {
-    private int id;
+    private Long id;
     private String name;
     private String color ;
     private double price;

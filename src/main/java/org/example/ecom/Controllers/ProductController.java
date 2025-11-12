@@ -1,18 +1,11 @@
 package org.example.ecom.Controllers;
-
-
-
-
 import org.example.ecom.dto.ProductDTO;
 import org.example.ecom.dto.ProductWithCateoryDTO;
-import org.example.ecom.exception.ProductNotFoundException;
 import org.example.ecom.services.IProductService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
-
-
 import java.io.IOException;
 
 @RestController

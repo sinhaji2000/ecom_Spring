@@ -11,7 +11,7 @@ public class ProductMapper {
     public static ProductDTO toProductDTO(FakeStoreProductResponse response) {
 
         ProductDTO dto = new ProductDTO();
-        dto.setId(response.getId());
+//        dto.setId(response.getId());
         dto.setName(response.getTitle());
         dto.setDescription(response.getDescription());
 
@@ -32,7 +32,8 @@ public class ProductMapper {
         if (product == null) return null;
 
         ProductDTO dto = new ProductDTO();
-        //dto.setId((int) product.getId());
+        dto.setCategoryId(product.getId());
+        dto.setId(product.getId());
         dto.setName(product.getName());
         dto.setColor(product.getColor());
         dto.setPrice(product.getPrice());
@@ -52,6 +53,7 @@ public class ProductMapper {
         //Category category = new Category();
         category.setId(dto.getCategoryId());
         return Product.builder()
+
                 .name(dto.getName())
                 .color(dto.getColor())
                 .price((int) dto.getPrice())
